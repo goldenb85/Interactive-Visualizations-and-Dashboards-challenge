@@ -15,9 +15,6 @@ Python (jupyter notebook), JavaScript, HTML, CSS
 
 ![Bubble Chart](Images/bubble_chart.png)
 
-4. Display the sample metadata, i.e., an individual's demographic information.
-
-5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
 ![hw](Images/hw03.png)
 
