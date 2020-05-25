@@ -98,6 +98,16 @@ function init() {
     buildMetadata(firstSample);
   });
 }
+
+function optionChanged(newSample) {
+  // Fetch new data each time a new sample is selected
+  buildCharts(newSample);
+  buildMetadata(newSample);
+}
+
+// Initialize the dashboard
+init();
+
 const url="./samples.json"
 var names = [];
 var metadata = [];
