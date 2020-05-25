@@ -24,15 +24,6 @@ Python (jupyter notebook), JavaScript, HTML, CSS
 
 ![Weekly Washing Frequency Gauge](Images/gauge.png)
 
-## Deployment
-
-Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
-
-## Hints
-
-* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
-
-* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
 
 ### About the Data
 
