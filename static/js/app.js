@@ -108,105 +108,105 @@ function optionChanged(newSample) {
 // Initialize the dashboard
 init();
 
-const url="./samples.json"
-var names = [];
-var metadata = [];
-var samples = [];
-var myMetaData = [];
-var mySampleData = [];
-var outputMetaData = [];
-function buildMetaData (id) {
-  var MetaData = metadata.filter(
-        d => {return d.id == id});
-  return MetaData[0];
-  };
+// const url="./samples.json"
+// var names = [];
+// var metadata = [];
+// var samples = [];
+// var myMetaData = [];
+// var mySampleData = [];
+// var outputMetaData = [];
+// function buildMetaData (id) {
+//   var MetaData = metadata.filter(
+//         d => {return d.id == id});
+//   return MetaData[0];
+//   };
 
-// Return an array of sample data about tested individual    
-function buildSample(id) {
-  var Sample = samples.filter(
-        d => {return d.id == id});
-  return Sample[0];
-  }; 
-// create function to load data to #sample-metadata
-function loadData(data) {
-    var tbody = d3.select("#sample-metadata");
-    tbody.html("");
-    var row = tbody.append("tr"); 
-    Object.entries(data).forEach(([key,value]) => {
-        var cell1 = row.append("td");
-        var cell2 = row.append("td");
+// // Return an array of sample data about tested individual    
+// function buildSample(id) {
+//   var Sample = samples.filter(
+//         d => {return d.id == id});
+//   return Sample[0];
+//   }; 
+// // create function to load data to #sample-metadata
+// function loadData(data) {
+//     var tbody = d3.select("#sample-metadata");
+//     tbody.html("");
+//     var row = tbody.append("tr"); 
+//     Object.entries(data).forEach(([key,value]) => {
+//         var cell1 = row.append("td");
+//         var cell2 = row.append("td");
                 
-        cell1.text(key);
-        cell2.text(value);
-    })
+//         cell1.text(key);
+//         cell2.text(value);
+//     })
 
-};    
-function optionChanged() {
+// };    
+// function optionChanged() {
     
-  id = d3.select("#selDataset").property("value");
-    MetaData = buildMetaData(id);
+//   id = d3.select("#selDataset").property("value");
+//     MetaData = buildMetaData(id);
     
-    Sample = buildSample(id);
+//     Sample = buildSample(id);
 
 
-    loadData(metadata);
-    buildbar(Sample)
-    }
-function input_Dropdown(id, obs) {
-  var selector = d3.select(id) 
-  selector.html("");
+//     loadData(metadata);
+//     buildbar(Sample)
+//     }
+// function input_Dropdown(id, obs) {
+//   var selector = d3.select(id) 
+//   selector.html("");
   
-    obs.forEach((value) => {
-    var cell = selector.append("option")
-    cell.text(value);
+//     obs.forEach((value) => {
+//     var cell = selector.append("option")
+//     cell.text(value);
 
-    });
+//     });
 
-  optionChanged();  
+//   optionChanged();  
 
-  };
-function buildObject(){
-    d3.json(url).then(function(data){
-      const names=data.names;
-      const metadata=data.metadata;
-      const samples=data.samples;
-      input_Dropdown("selDataset",names)
-    });
-}
-  buildObject();
-
-
+//   };
+// function buildObject(){
+//     d3.json(url).then(function(data){
+//       const names=data.names;
+//       const metadata=data.metadata;
+//       const samples=data.samples;
+//       input_Dropdown("selDataset",names)
+//     });
+// }
+//   buildObject();
 
 
-  function buildbar() {
-    d3.json(url).then(function(data) {
+
+
+//   function buildbar() {
+//     d3.json(url).then(function(data) {
       
-      // Grab values from the data json object to build the plots
-      var otu_ids=data.samples.otu_ids;
-      var otu_labels =data.samples.otu_labels;
-      var sample_values=data.samples.sample_values;
+//       // Grab values from the data json object to build the plots
+//       var otu_ids=data.samples.otu_ids;
+//       var otu_labels =data.samples.otu_labels;
+//       var sample_values=data.samples.sample_values;
       
-      var trace1 = {
-        type: "bar",
-        name: otu_labels,
-        x: otu_ids,
-        y: sample_values,
-        line: {
-          color: "#17BECF"
-        }
-      };
+//       var trace1 = {
+//         type: "bar",
+//         name: otu_labels,
+//         x: otu_ids,
+//         y: sample_values,
+//         line: {
+//           color: "#17BECF"
+//         }
+//       };
   
-      var data = [trace1];
+//       var data = [trace1];
   
-      var layout = {
-        title: "Test Subject ID: " + data.id,
-        xaxis: {title:"Sample Value"}
-      };
+//       var layout = {
+//         title: "Test Subject ID: " + data.id,
+//         xaxis: {title:"Sample Value"}
+//       };
   
-      Plotly.plot("plot", data, layout);
+//       Plotly.plot("plot", data, layout);
   
-    });
-  }
+//     });
+//   }
   
 //   buildbar();
 // // Creat function to plot bar, pie and bubble chart
